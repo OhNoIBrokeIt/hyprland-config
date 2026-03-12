@@ -1,0 +1,3 @@
+# Allow wallpaper rotation script to update SDDM theme without password prompt
+ohnoibrokeit ALL=(ALL) NOPASSWD: /usr/bin/cp * /usr/share/pixmaps/greeter-bg.jpg
+ohnoibrokeit ALL=(ALL) NOPASSWD: /usr/bin/sed -i * /usr/share/sddm/themes/sddm-astronaut-theme/Themes/william.conf

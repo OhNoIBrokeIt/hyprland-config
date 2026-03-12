@@ -1,0 +1,276 @@
+/* =========================================================
+   WAYBAR STYLE — Pywal driven
+   Accent sourced from ~/.config/waybar/colors-waybar.css
+   ========================================================= */
+
+@import "colors-waybar.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Font Awesome 6 Free";
+  font-size: 15px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  transition: 180ms;
+}
+
+window#waybar {
+  background: transparent;
+  color: #d0d0d8;
+  min-height: 42px;
+}
+
+tooltip {
+  background: rgba(10, 10, 18, 0.96);
+  border: 1px solid @accent_dim;
+  border-radius: 12px;
+  color: #d0d0d8;
+  padding: 6px;
+}
+
+tooltip label {
+  color: #d0d0d8;
+}
+
+/* ========================= */
+/* Workspaces                */
+/* ========================= */
+#workspaces {
+  margin: 5px 0 5px 10px;
+  padding: 0 6px;
+  background: rgba(12, 12, 20, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#workspaces button {
+  color: rgba(180, 180, 195, 0.35);
+  padding: 0 5px;
+  margin: 4px 1px;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 10px;
+}
+
+#workspaces button:hover {
+  background: @accent_dim;
+  color: @accent;
+}
+
+#workspaces button.active {
+  color: @accent;
+  font-size: 13px;
+}
+
+#workspaces button.urgent {
+  color: rgba(255, 60, 111, 0.95);
+  font-size: 13px;
+}
+
+#workspaces button.empty {
+  color: rgba(180, 180, 195, 0.20);
+}
+
+/* ========================= */
+/* Window title              */
+/* ========================= */
+#window {
+  margin: 5px 0 5px 8px;
+  padding: 0 12px;
+  background: rgba(12, 12, 20, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(200, 200, 210, 0.70);
+  font-weight: 600;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ========================= */
+/* MPRIS                     */
+/* ========================= */
+#mpris {
+  margin: 5px 4px 5px 0;
+  padding: 0 14px;
+  background: rgba(12, 12, 20, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #c8c8d4;
+  font-style: italic;
+  font-size: 14px;
+}
+
+#mpris.paused {
+  color: rgba(180, 180, 195, 0.50);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+
+#mpris.playing {
+  color: @accent;
+  border-color: @accent_dim;
+}
+
+#mpris:hover {
+  background: @accent_dim;
+}
+
+/* ========================= */
+/* Clock                     */
+/* ========================= */
+#clock {
+  background: @accent_alpha;
+  color: #06060c;
+  font-weight: 900;
+  font-size: 15px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: none;
+  margin: 5px 0;
+}
+
+#clock:hover {
+  opacity: 0.88;
+}
+
+/* ========================= */
+/* Shared right modules      */
+/* ========================= */
+#custom-weather,
+#custom-nvidia,
+#custom-cpu_temp,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#wireplumber-mic,
+#bluetooth,
+#custom-notification,
+#tray {
+  margin: 5px 2px;
+  padding: 0 11px;
+  background: rgba(12, 12, 20, 0.75);
+  color: #c8c8d4;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 15px;
+}
+
+/* Group the right modules into one pill */
+#custom-nvidia,
+#custom-cpu_temp,
+#cpu,
+#memory {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  padding: 0 8px;
+}
+
+#custom-nvidia {
+  border-radius: 12px 0 0 12px;
+  border-right: none;
+  margin-left: 2px;
+  padding-left: 12px;
+}
+
+#memory {
+  border-radius: 0 12px 12px 0;
+  border-left: none;
+  margin-right: 2px;
+  padding-right: 12px;
+}
+
+/* Hover */
+#custom-weather:hover,
+#custom-nvidia:hover,
+#custom-cpu_temp:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#wireplumber:hover,
+#wireplumber-mic:hover,
+#bluetooth:hover,
+#custom-notification:hover {
+  background: @accent_dim;
+  color: @accent;
+  border-color: @accent_dim;
+}
+
+/* ========================= */
+/* Weather                   */
+/* ========================= */
+#custom-weather {
+  color: @accent;
+  font-weight: 600;
+}
+
+/* ========================= */
+/* NVIDIA                    */
+/* ========================= */
+#custom-nvidia {
+  color: @accent;
+  font-weight: 700;
+}
+
+#custom-nvidia.warning {
+  color: #ffd166;
+}
+
+#custom-nvidia.critical {
+  color: #ff3c6f;
+}
+
+/* ========================= */
+/* CPU temp                  */
+/* ========================= */
+#custom-cpu_temp.normal { color: #c8c8d4; }
+#custom-cpu_temp.warm   { color: #ffd166; }
+#custom-cpu_temp.hot    { color: #ff8c42; }
+#custom-cpu_temp.critical { color: #ff3c6f; }
+
+/* ========================= */
+/* Notification              */
+/* ========================= */
+#custom-notification {
+  color: @accent;
+  font-weight: 800;
+}
+
+#custom-notification.none {
+  color: rgba(180, 180, 195, 0.40);
+}
+
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+  color: rgba(180, 180, 195, 0.40);
+  background: rgba(12, 12, 20, 0.50);
+}
+
+/* ========================= */
+/* Muted states              */
+/* ========================= */
+#wireplumber.muted,
+#wireplumber-mic.muted,
+#network.disconnected,
+#bluetooth.disabled {
+  color: rgba(255, 60, 111, 0.85);
+}
+
+/* ========================= */
+/* Tray                      */
+/* ========================= */
+#tray {
+  padding: 0 10px;
+  margin-right: 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  background: rgba(255, 60, 111, 0.16);
+  border-radius: 8px;
+}

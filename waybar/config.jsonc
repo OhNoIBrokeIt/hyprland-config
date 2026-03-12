@@ -1,0 +1,196 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 42,
+  "spacing": 0,
+  "mode": "dock",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "mpris",
+    "clock"
+  ],
+
+  "modules-right": [
+    "custom/weather",
+    "custom/nvidia",
+    "custom/cpu_temp",
+    "cpu",
+    "memory",
+    "network",
+    "wireplumber",
+    "wireplumber#mic",
+    "bluetooth",
+    "custom/notification",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "all-outputs": false,
+    "active-only": false,
+    "disable-scroll": false,
+    "on-click": "activate",
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "●", "2": "●", "3": "●",
+      "4": "●", "5": "●", "6": "●",
+      "7": "●", "8": "●", "9": "●",
+      "active": "⬤",
+      "empty": "○",
+      "urgent": "⬤"
+    },
+    "persistent-workspaces": {
+      "DP-2": [1, 2, 3, 4, 5, 6],
+      "DP-3": [7, 8, 9]
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹  $1",
+      "(.*) - Mozilla Firefox": "󰈹  $1",
+      "(.*) - Visual Studio Code": "  $1",
+      "kitty": "  terminal",
+      "Dolphin": "  files"
+    }
+  },
+
+  "mpris": {
+    "format": "{player_icon}  {title} — {artist}",
+    "format-paused": "  {title} — {artist}",
+    "format-stopped": "",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "firefox": "󰈹",
+      "chromium": "",
+      "qobuz": ""
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    },
+    "max-length": 60,
+    "tooltip-format": "{title}\n{artist}\n{album}\n{player}",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "on-scroll-up": "playerctl volume 0.05+",
+    "on-scroll-down": "playerctl volume 0.05-",
+    "interval": 1
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%A, %B %d, %Y}</big>\n<tt>{calendar}</tt>",
+    "format": "  {:%a %b %d  %I:%M %p}",
+    "interval": 1,
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "today": "<b><u>{}</u></b>"
+      }
+    }
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 2,
+    "tooltip-format": "CPU: {usage}%\nLoad: {load}"
+  },
+
+  "memory": {
+    "format": "  {percentage}%",
+    "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G",
+    "interval": 5
+  },
+
+  "custom/cpu_temp": {
+    "exec": "~/.config/waybar/scripts/cpu_temp.sh",
+    "return-type": "json",
+    "interval": 2,
+    "format": "{}"
+  },
+
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh",
+    "return-type": "json",
+    "interval": 1800,
+    "format": "{}",
+    "tooltip": true
+  },
+
+  "network": {
+    "format-wifi": "  {essid} {signalStrength}%",
+    "format-ethernet": "󰈀  Wired",
+    "format-linked": "󰈀  {ifname}",
+    "format-disconnected": "󰖪  Offline",
+    "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\nFreq: {frequency}MHz\n↓ {bandwidthDownBits}  ↑ {bandwidthUpBits}",
+    "tooltip-format-ethernet": "{ifname}\n↓ {bandwidthDownBits}  ↑ {bandwidthUpBits}",
+    "interval": 5,
+    "on-click": "~/.config/hypr/scripts/wifi-menu.sh"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": "  {num_connections}",
+    "format-connected-battery": "  {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/nvidia": {
+    "exec": "~/.config/waybar/scripts/nvidia.sh",
+    "return-type": "json",
+    "interval": 3,
+    "format": "{}",
+    "on-click": "nvidia-settings"
+  },
+
+  "wireplumber": {
+    "format": " {volume}%",
+    "format-muted": "󰝟  muted",
+    "tooltip-format": "{node_name}",
+    "scroll-step": 5,
+    "on-click": "~/.config/hypr/scripts/audio-menu.sh",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "wireplumber#mic": {
+    "node-type": "Audio/Source",
+    "format": "󰍬 {volume}%",
+    "format-muted": "󰍭",
+    "tooltip-format": "{node_name}",
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
+
+  "tray": {
+    "spacing": 8,
+    "icon-size": 18
+  },
+
+  "custom/notification": {
+    "format": "{}",
+    "return-type": "json",
+    "exec-if": "command -v swaync-client >/dev/null 2>&1",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t",
+    "on-click-right": "swaync-client -d",
+    "escape": true,
+    "tooltip": false
+  }
+}

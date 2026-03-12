@@ -1,0 +1,16 @@
+[Unit]
+Description=Waybar
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sh -c 'until [ -S "$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket.sock" ]; do sleep 0.5; done'
+ExecStart=/usr/bin/waybar
+ExecReload=/usr/bin/pkill -SIGUSR2 waybar
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

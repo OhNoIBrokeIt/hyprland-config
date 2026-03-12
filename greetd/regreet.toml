@@ -1,0 +1,14 @@
+[background]
+path = "/usr/share/pixmaps/greeter-bg.jpg"
+fit = "Cover"
+
+[GTK]
+application_prefer_dark_theme = true
+cursor_theme_name = "Adwaita"
+font_name = "JetBrainsMono Nerd Font 13"
+icon_theme_name = "Papirus-Dark"
+theme_name = "catppuccin-mocha-blue-standard+default"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]

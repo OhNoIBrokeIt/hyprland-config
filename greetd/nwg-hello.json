@@ -1,0 +1,24 @@
+{
+  "session_dirs": ["/usr/share/wayland-sessions", "/usr/share/xsessions"],
+  "sessions_from_dirs": true,
+  "session": "hyprland",
+  "night_threshold": 18,
+  "day_threshold": 6,
+  "gtk_theme": "catppuccin-mocha-blue-standard+default",
+  "icon_theme": "Papirus-Dark",
+  "cursor_theme": "Adwaita",
+  "cursor_size": 24,
+  "background": "/usr/share/pixmaps/greeter-bg.jpg",
+  "background_mode": "fill",
+  "form_position": "center",
+  "form_width": 500,
+  "logo_path": "",
+  "logo_size": 64,
+  "round_corners": true,
+  "border_width": 1,
+  "commands": {
+    "reboot": "systemctl reboot",
+    "poweroff": "systemctl poweroff",
+    "suspend": "systemctl suspend"
+  }
+}

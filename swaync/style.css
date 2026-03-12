@@ -1,0 +1,138 @@
+/* =========================================================
+   SWAYNC STYLE
+   Colors prepended by wallpaper-rotate.sh on each rotation.
+   DO NOT add @import here — colors are injected directly.
+   ========================================================= */
+
+/* libadwaita named colors — these are what actually apply */
+@define-color accent_color          @accent;
+@define-color accent_bg_color       @accent;
+@define-color accent_fg_color       #06060c;
+@define-color window_bg_color       #08080f;
+@define-color window_fg_color       @fg;
+@define-color view_bg_color         #0a0a14;
+@define-color view_fg_color         @fg;
+@define-color headerbar_bg_color    #06060c;
+@define-color headerbar_fg_color    @fg;
+@define-color card_bg_color         #0d0d1a;
+@define-color card_fg_color         @fg;
+@define-color popover_bg_color      #0d0d1a;
+@define-color popover_fg_color      @fg;
+@define-color sidebar_bg_color      #08080f;
+@define-color sidebar_fg_color      @fg;
+@define-color dialog_bg_color       #0d0d1a;
+@define-color dialog_fg_color       @fg;
+
+/* Direct element overrides */
+.control-center {
+  background: @bg;
+  border: 1px solid @accent_dim;
+  border-radius: 14px;
+}
+
+.notification {
+  background: alpha(#0a0a14, 0.96);
+  border: 1px solid @accent_dim;
+  border-radius: 12px;
+  color: @fg;
+}
+
+.notification.critical {
+  border-left: 3px solid #ff3c6f;
+}
+
+.notification.normal {
+  border-left: 3px solid @accent_mid;
+}
+
+.notification.low {
+  border-left: 3px solid @accent_dim;
+}
+
+.notification-row:hover {
+  background: @accent_dim;
+}
+
+.summary {
+  color: @accent;
+  font-weight: 800;
+}
+
+.time {
+  color: alpha(@fg, 0.50);
+}
+
+.app-name {
+  color: alpha(@fg, 0.70);
+}
+
+.close-button {
+  background: transparent;
+  color: alpha(@fg, 0.45);
+}
+
+.close-button:hover {
+  background: @accent_dim;
+  color: @accent;
+}
+
+.widget-title > label {
+  color: @fg;
+  font-weight: 800;
+}
+
+.widget-title > button {
+  background: @accent_dim;
+  color: @accent;
+}
+
+.widget-title > button:hover {
+  background: @accent;
+  color: #06060c;
+}
+
+.widget-dnd {
+  background: alpha(#0e0e1a, 0.60);
+  border: 1px solid @accent_dim;
+  border-radius: 10px;
+}
+
+.widget-mpris {
+  background: alpha(#0e0e1a, 0.80);
+  border: 1px solid @accent_dim;
+  border-radius: 12px;
+}
+
+.widget-mpris-title {
+  color: @fg;
+  font-weight: 700;
+}
+
+.widget-mpris-subtitle {
+  color: alpha(@fg, 0.70);
+}
+
+.widget-volume {
+  background: alpha(#0e0e1a, 0.60);
+  border: 1px solid @accent_dim;
+  border-radius: 10px;
+}
+
+scale trough {
+  background: alpha(@fg, 0.10);
+  border-radius: 999px;
+  min-height: 6px;
+}
+
+scale highlight {
+  background: @accent_mid;
+  border-radius: 999px;
+  min-height: 6px;
+}
+
+scale slider {
+  background: @accent;
+  border-radius: 999px;
+  min-width: 14px;
+  min-height: 14px;
+}
